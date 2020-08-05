@@ -1,3 +1,8 @@
+This fork will be modified to run on the linux version of powershell
+Currently, the only tested command is Invoke-EnumerateAzureBlobs (still could use some fine tuning) . As I have time to test, I will try to add more.
+
+Big thanks to Karl Fosaaen for writing the tool!
+
 ![MicroBurstLogo](http://blog.netspi.com/wp-content/uploads/2020/03/Microburst_Github.png) 
 <br> 
 [![licence badge]][licence] 
