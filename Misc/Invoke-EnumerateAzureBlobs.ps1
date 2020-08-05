@@ -85,7 +85,7 @@ $lookupResult = ""
         # Check for the base word
         $lookup = ($Base+$domain).ToLower()
         Write-Verbose "Resolving - $lookup"
-        try{($lookupResult = Resolve-DnsName $lookup -ErrorAction Stop -Verbose:$false | select Name | Select-Object -First 1)|Out-Null}catch{}
+        try{($lookupResult = [System.Net.Dns]::Resolve($lookup) | select HostName | Select-Object -First 1)|Out-Null}catch{}
         if ($lookupResult -ne ""){Write-Host "Found Storage Account -  $lookup"; $runningList += $lookup; if ($OutputFile){$lookup >> $OutputFile}}
         $lookupResult = ""
     }
@@ -107,14 +107,14 @@ $lookupResult = ""
             # PermutationBase
             $lookup = ($word+$Base+$domain).ToLower()
             Write-Verbose "Resolving - $lookup"
-            try{($lookupResult = Resolve-DnsName $lookup -ErrorAction Stop -Verbose:$false | select Name | Select-Object -First 1)|Out-Null}catch{}
+            try{($lookupResult = [System.Net.Dns]::Resolve($lookup) | select HostName | Select-Object -First 1)|Out-Null}catch{}
             if ($lookupResult -ne ""){Write-Host "Found Storage Account -  $lookup"; $runningList += $lookup; if ($OutputFile){$lookup >> $OutputFile}}
             $lookupResult = ""
 
             # BasePermutation
             $lookup = ($Base+$word+$domain).ToLower()
             Write-Verbose "Resolving - $lookup"
-            try{($lookupResult = Resolve-DnsName $lookup -ErrorAction Stop -Verbose:$false | select Name | Select-Object -First 1)|Out-Null}catch{}
+            try{($lookupResult = [System.Net.Dns]::Resolve($lookup) | select HostName | Select-Object -First 1)|Out-Null}catch{}
             if ($lookupResult -ne ""){Write-Host "Found Storage Account -  $lookup"; $runningList += $lookup; if ($OutputFile){$lookup >> $OutputFile}}
             $lookupResult = ""
         }
@@ -122,7 +122,7 @@ $lookupResult = ""
             # Check the permutation word if there's no base
             $lookup = ($word+$domain).ToLower()
             Write-Verbose "Resolving - $lookup"
-            try{($lookupResult = Resolve-DnsName $lookup -ErrorAction Stop -Verbose:$false | select Name | Select-Object -First 1)|Out-Null}catch{}
+            try{($lookupResult = [System.Net.Dns]::Resolve($lookup) | select HostName | Select-Object -First 1)|Out-Null}catch{}
             if ($lookupResult -ne ""){Write-Host "Found Storage Account -  $lookup"; $runningList += $lookup; if ($OutputFile){$lookup >> $OutputFile}}
             $lookupResult = ""
         }
