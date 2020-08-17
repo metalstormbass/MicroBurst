@@ -1,4 +1,4 @@
-This fork will be modified to run on the linux version of powershell (to be used with the <a href="https://github.com/metalstormbass/Offensive_Azure">Offensive Azure VM</a>.
+This fork will be modified to run on the linux version of powershell (to be used with the <a href="https://github.com/metalstormbass/Offensive_Azure">Offensive Azure VM</a>).
 Currently, the only tested command is Invoke-EnumerateAzureBlobs (still could use some fine tuning) . As I have time to test, I will try to add more.
 
 Big thanks to Karl Fosaaen for writing the tool!
